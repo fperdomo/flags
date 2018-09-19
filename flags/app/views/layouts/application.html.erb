@@ -9,7 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body>  
+  <%= render "partials/navigation" %>
+  
+  <div style="<%= "display: none" if notice.nil? and alert.nil?  %>">
+    <%= notice %> <%= alert %>
+  </div> 
+
+  <%= yield %>
   </body>
 </html>
