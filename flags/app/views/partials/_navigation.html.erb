@@ -1,23 +1,36 @@
 <header>
-    <nav class="be-green gray large-padding">
-      <ul class="no-list row center-xs middle-xs">
-        <li class="col-md">
-            <h1 class="no-margin" id="logo"><%= link_to "Flags FM", root_path %></h1>
-        </li>
-        
-        
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Flags</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>        
+      </ul>      
+      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li class="col-md">
-              <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-          </li>
+          <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li class="col-md">
               <%= link_to "Iniciar sesión", new_user_session_path %>
           </li>
-           <li class="col-md">
+          <li class="col-md">
               <%= link_to "Crear cuenta", new_user_registration_path %>
           </li>
         <%end%>
       </ul>
-    </nav>
-  </header>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<header>
