@@ -1,0 +1,43 @@
+<div class="row center-xs">
+  <div class="col-xs-8 col-md-6">
+    <div class="box text-left">
+      <h2>Crear Cuenta</h2>
+
+      <%= form_for(resource, as: resource_name, url: '/sign_up_validation', html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "Contraseña" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "Confirmar Contraseña" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Completar registro", class:"btn be-green gray" %>
+        </div>
+      <% end %>     
+    </div>
+  </div>
+</div>

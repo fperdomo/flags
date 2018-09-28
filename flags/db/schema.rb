@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2018_09_19_232505) do
     t.string "name"
     t.string "last_name"
     t.integer "user_type", default: 1
+    t.string "provider"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_file_name"
