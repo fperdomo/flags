@@ -25,10 +25,15 @@ ActiveRecord::Schema.define(version: 2018_09_19_232505) do
     t.string "last_sign_in_ip"
     t.string "name"
     t.string "last_name"
-    t.string "profile_photo"
     t.integer "user_type", default: 1
+    t.string "provider"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_file_name"
+    t.string "profile_content_type"
+    t.bigint "profile_file_size"
+    t.datetime "profile_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -33,12 +33,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string   :name
-      t.string   :last_name
-      t.string   :profile_photo
+      t.string   :last_name    
       t.integer  :user_type, default: 1
-
+      t.string   :provider
+      t.string   :uid
+      
       t.timestamps null: false
     end
+
+    add_attachment :users,:profile
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true

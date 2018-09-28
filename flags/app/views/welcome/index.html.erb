@@ -2,6 +2,12 @@
 <p>Find me in app/views/welcome/index.html.erb</p>
 
 
+<% if user_signed_in? %>
+  <h1>Bienvenido <%= current_user.email %></h1>
+  <%= image_tag current_user.profile.url(:mini) %>
+<% end %>
+
+
 <div class="panel panel-default">
   <div class="panel-heading">Panel heading without title</div>
   <div class="panel-body">
