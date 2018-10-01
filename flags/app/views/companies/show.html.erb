@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
+
+ <h4>Users</h4>
+  <% @company.users.each do |user| %>
+    <div><%= user.email %></div>
+  <% end %>
+
+<h4>Invite User</h4>
+<%= form_for [@company, CompanyUser.new] do |f| %>
+  <div>
+    <%= f.text_field :email, required: true %>
+  </div>
+  <%= f.submit "Invite" %>
+<%  end %>
