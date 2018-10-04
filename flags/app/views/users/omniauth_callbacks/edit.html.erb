@@ -1,43 +1,59 @@
-<div class="row center-xs">
-  <div class="col-xs-8 col-md-6">
-    <div class="box text-left">
-      <h2>Crear Cuenta</h2>
+<div class="container">            
+  <div id="signupbox" style="margin-top:5px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title">Completar el registro</div>
+      </div>  
+      <div class="panel-body" >
+      <%= form_for(resource, as: resource_name, url: '/sign_up_validation', html: {class: 'form-horizontal' , method: :post }) do |f| %>
+      
+          <%= devise_error_messages! %>         
+          <div class="form-group">
+            <label for="email" class="col-md-3 control-label">Email</label>
+            <div class="col-md-9">             
+               <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="firstname" class="col-md-3 control-label">Nombre</label>
+            <div class="col-md-9">
+              <%= f.text_field :name, autocomplete: "nombre", class:"form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="col-md-3 control-label">Apellido</label>
+            <div class="col-md-9">
+              <%= f.text_field :last_name, autocomplete: "apellido", class:"form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-md-3 control-label">Contraseña</label>
+            <div class="col-md-9">              
+                <%= f.password_field :password, autocomplete: "contraseña", class:"form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-md-3 control-label">Confirmar contraseña</label>
+            <div class="col-md-9">
+                <%= f.password_field :password_confirmation, autocomplete: "contraseña", class:"form-control" %>
+            </div>
+          </div>        
+       
 
-      <%= form_for(resource, as: resource_name, url: '/sign_up_validation', html: { method: :post }) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :name %><br />
-          <%= f.text_field :name, class:"form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :last_name %><br />
-          <%= f.text_field :last_name, class:"form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password, "Contraseña" %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation, "Confirmar Contraseña" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Completar registro", class:"btn be-green gray" %>
-        </div>
-      <% end %>     
+          <div class="form-group">
+            <!-- Button -->                                        
+            <div class="col-md-offset-3 col-md-9">
+              <%= f.submit "Completar registro", class:"btn be-green gray" %>
+            </div>
+          </div>
+          
+         
+        <% end %>
+      </div>
     </div>
-  </div>
+  </div> 
 </div>
+
+
+
