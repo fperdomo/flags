@@ -3,7 +3,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Iniciar sesión</div>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">¿Has olvidado tu correo electrónico?</a></div>
+               
             </div>
             <div style="padding-top:30px" class="panel-body">
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
@@ -33,15 +33,11 @@
                     <div class="form-group">
                         <div class="col-md-12 control">
                             <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
-                                No tienes cuenta!
-                                <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">Crear cuenta</a>
+                                <%= render "devise/shared/links" %>
                             </div>
                         </div>
                     </div>
-                <% end %>
-                <div class="actions">
-                    <%= render "devise/shared/links" %>
-                </div>
+                <% end %>                
             </div>
         </div>
     </div>
